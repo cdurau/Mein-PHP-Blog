@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  php-blog:
+    build: .
+    ports:
+      - 80:80
+    volumes:
+      - .:/var/www/html
