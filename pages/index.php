@@ -1,4 +1,7 @@
 <?php
+
+use App\Post\PostRepository;
+
 include "../init.php";
 include "elements/header.php";
 ?>
@@ -6,7 +9,11 @@ include "elements/header.php";
     <h1>Startseite des Blogs</h1>
     <p class="lead">Das hier ist die Startseite des Blogs</p>
 
-<?php $res = DATABASE::fetchPosts(); ?>
+<?php
+/** @var PDO $pdo */
+$postRepository = new PostRepository($pdo);
+$res = $postRepository->fetchPosts();
+?>
 
     <ul>
         <?php foreach ($res as $row): ?>
