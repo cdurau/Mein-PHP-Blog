@@ -2,7 +2,6 @@
 include "../init.php";
 include "elements/header.php";
 
-use PDO;
 use App\Post\PostRepository;
 
 ?>
@@ -11,7 +10,7 @@ use App\Post\PostRepository;
 <?php
 if (isset($_GET["id"])):
     $id = $_GET["id"];
-    /** @var PDO $pdo */
+    /** @var $pdo */
     $postRepository = new PostRepository($pdo);
     $post = $postRepository->fetchPost($id);
     ?>

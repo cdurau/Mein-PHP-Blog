@@ -10,7 +10,7 @@ include "elements/header.php";
     <p class="lead">Das hier ist die Startseite des Blogs</p>
 
 <?php
-/** @var PDO $pdo */
+/** @var $pdo */
 $postRepository = new PostRepository($pdo);
 $res = $postRepository->fetchPosts();
 ?>
