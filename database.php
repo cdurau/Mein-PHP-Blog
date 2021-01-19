@@ -11,4 +11,13 @@ class Database
 
         return $pdo->query("SELECT * FROM `posts`");
     }
+
+    public static function fetchPost($id)
+    {
+        global $pdo;
+
+        $query = $pdo->query("SELECT * FROM `posts` WHERE id={$id}");
+
+        return $query->fetch();
+    }
 }
