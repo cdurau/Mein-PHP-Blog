@@ -17,7 +17,7 @@ $res = $postRepository->fetchPosts();
 
     <ul>
         <?php foreach ($res as $row): ?>
-            <li><a href="post.php?id=<?php echo $row["id"]; ?>"><?php echo $row["title"] . "<br>"; ?></a></li>
+            <li><a href="post.php?id=<?php echo $row->id; ?>"><?php echo $row->title . "<br>"; ?></a></li>
         <?php endforeach; ?>
     </ul>
 <?php include "elements/footer.php"; ?>

@@ -15,13 +15,18 @@ class PostRepository
 
     function fetchPosts()
     {
-        return $this->pdo->query("SELECT * FROM `posts`");
+        $stmt = $this->pdo->query("SELECT * FROM `posts`");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, "App\Post\PostModel");
+
+        return $stmt->fetchAll();
     }
 
     function fetchPost($id)
     {
         $stmt = $this->pdo->prepare("SELECT * FROM `posts` WHERE id = :id");
         $stmt->execute(["id" => $id]);
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS, "App\\Post\\PostModel");
 
         return $stmt->fetch();
     }
