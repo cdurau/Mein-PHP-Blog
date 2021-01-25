@@ -1,0 +1,9 @@
+# MISC
+.DS_Store
+
+# IDE's
+.vscode
+.idea
+
+# CREDENTIALS
+config.ini
