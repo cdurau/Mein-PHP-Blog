@@ -1,4 +1,7 @@
 <?php
 
-$pdo = new PDO('mysql:host=192.168.2.30;port=3306;dbname=blog', 'blog', '2JH0chvcVuBj77v4');
+$config = parse_ini_file('config.ini');
+
+$pdo = new PDO("{$config['connection']}:host={$config['host']};port={$config['port']};dbname={$config['dbname']}", "{$config['user']}", "{$config['password']}");
+
 $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
