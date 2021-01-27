@@ -1,7 +1,5 @@
 <?php
 
-use App\Post\PostRepository;
-
 include "../init.php";
 include "elements/header.php";
 ?>
@@ -10,8 +8,8 @@ include "elements/header.php";
     <p class="lead">Das hier ist die Startseite des Blogs</p>
 
 <?php
-/** @var $pdo */
-$postRepository = new PostRepository($pdo);
+/** @var $container */
+$postRepository = $container->getPostsRepository();
 $res = $postRepository->fetchPosts();
 ?>
 
